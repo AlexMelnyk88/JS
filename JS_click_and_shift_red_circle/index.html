@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click</title>
+    <style>
+        .circle{
+            border-radius: 100px;
+            border: 1px solid red;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top:20px;
+            left: 20px;
+            background-color: red;
+        }
+        .main_cube{
+            background: grey;
+            border: 2px solid #159183;
+            width: 500px;
+            height: 500px;
+            
+        }
+    </style>
+    <script>
+    window.addEventListener("load", function() {
+        var main_cube = document.querySelector(".main_cube"); 
+        var circle = document.querySelector(".circle"); 
+        var cordsy = document.getElementById("y");
+        var cordsx = document.getElementById("x");
+            main_cube.addEventListener("click", function(event) {           
+                cordsy.textContent = `${event.pageY}`;
+                cordsx.textContent = `${event.pageX}`;
+                cordsy.style.color = "#0a00ff";
+                cordsx.style.color = "#0a00ff";                 
+                    circle.style.top  = (event.pageY - 13) + "px";
+                    circle.style.left = (event.pageX - 13) + "px";
+            })     
+    });
+      
+    </script>
+</head>
+<body>
+   <!--                       Note!
+     When a page is loaded you see a cube with a red circle,
+     as soon as you decide to click at any spot in a cube a red
+     circle will shift to the pointer.
+    -->
+    <div class="main_cube">
+    <div class="circle"></div>
+    </div>
+    <p> Y: <span id="y"></span></p>
+    
+    <p> X: <span id="x"></span></p>  
+</body>
+</html>

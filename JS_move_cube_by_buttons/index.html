@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>move cube</title>
+    <style>
+        .cube{
+            border: 1px solid red;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: red;
+            transition: 0.5s;
+        }
+        .main_cube{
+            background: grey;
+            border: 2px solid #159183;
+            width: 500px;
+            height: 500px;
+            
+        }
+    </style>
+    <script>
+   "use strict";
+    window.addEventListener("load", function() {
+        var main_cube = document.querySelector(".main_cube"); 
+        var cube = document.querySelector(".cube"); 
+        var body= document.body;
+            body.addEventListener("keydown", function(event) {        
+                  var getposition = getComputedStyle(cube);   
+                 switch (event.keyCode) {               
+            case 38: cube.style.top = parseInt(getposition.top)-30+"px";
+                      break; 
+            case 40: cube.style.top = parseInt(getposition.top)+30+"px";
+                      break; 
+            case 37: cube.style.left = parseInt(getposition.left)-30+"px";  
+                      break;   
+            case 39: cube.style.left = parseInt(getposition.left)+30+"px";
+                      break;   
+            default: alert("Press an arrow up, down, left or right... ");   
+                        }
+            })     
+            
+    });
+      
+    </script>
+</head>
+<body>
+   <!--                               Note!
+     When a page is loaded you see a big gray cube with the small one inside, as soon as you decide to press any keyboard button namely an arrow up, down, left or right you will see how a red cube moves on the screen..
+    -->
+    <div class="main_cube">
+      <div class="cube"></div>
+    </div>
+    
+</body>
+</html>

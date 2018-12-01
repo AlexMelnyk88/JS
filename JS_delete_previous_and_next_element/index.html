@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>delete</title>
+</head>
+<script>
+     window.addEventListener("load", function() {
+       var get_ul = document.querySelector('.main_ul');
+          get_ul.addEventListener('click', function(event) {
+               var event = event.target;
+                if(event.tagName == 'BUTTON'){
+                    switch(event.className){
+                        case 'delPrev': deletePrevious(event.parentElement); break;
+                        case 'delNext': deleteNext(event.parentElement); break;  
+                           } 
+              }
+                    
+         });
+         
+         function deletePrevious(event) {
+             var pre = event.previousElementSibling;
+             var parent = event.parentElement;
+             if(pre){
+                 parent.removeChild(pre);
+             }else{
+                   alert("The previous is an empty")   
+             } 
+         };
+         
+         function deleteNext(event) {       
+             var next = event.nextElementSibling;
+             var parent = event.parentElement;
+             if(next){
+                  parent.removeChild(next);
+         }else{
+                alert("The next is an empty");   
+                       
+            }
+         }  
+     });
+                             
+    
+    </script>
+<body>
+   
+   <ul class="main_ul">
+        <li>element0 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element1 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element2 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element3 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element4 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element5 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element6 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element7 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element8 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+        <li>element9 <button class="delPrev">prev</button><button class="delNext">next</button></li>
+    </ul>
+    
+   
+   
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>klick</title>
+</head> 
+    <style>
+        #text{
+             position: relative;
+             display: inline-block;
+             cursor: pointer;
+             margin-top: 50px;
+             margin-left: 50px;   
+        }
+        
+        .info{
+                visibility: hidden;   
+        }
+        
+        .active{
+                visibility: visible;
+                width: 125px;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-radius: 15px;
+                padding: 5px 0;
+                position: absolute;
+                left: 55px;
+                margin-left: -80px;
+                font-size: 11px;
+                top: -33px
+           
+          }
+        
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+           var result = document.getElementById('text');
+            result.addEventListener('click', function(e){    
+           var elem = document.querySelector('.info');
+               elem.classList.toggle('active');
+            })       
+        })
+            
+    </script>
+<body> 
+    <div id="text">klick on me !
+      <div class="info">you see some information</div>
+    </div>
+    
+</body>
+</html>

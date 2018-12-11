@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click</title>
+    <script>
+    window.addEventListener('load',function(){
+        var btn = document.getElementsByClassName("button");
+        for(var i=0; i < btn.length; i++){   
+          btn[i].addEventListener('click', function(e){
+                this.nextElementSibling.classList.toggle('active');      
+          })
+        }     
+    })       
+    </script>
+</head>
+      
+<style>
+    .button{
+         background-color: #ffffff;
+         height: 20px;
+         cursor: pointer;
+         border: none;
+         font-size: 15px;
+        
+        
+    }
+    .button:hover{
+        background-color:#66b4f5;
+        border: none;
+    }
+
+    .innerPart{
+        overflow: hidden;
+        max-height: 0;
+          
+    }
+    .active{
+        overflow: visible;
+        max-height: 1;
+        margin: 1px;
+        transition: max-height 0.7s ease-out; 
+        margin-bottom: 40px;
+       
+    }
+    
+    p{
+         margin: 2px;
+         background-color:#e6e6e6;
+    }
+</style>
+
+<body>
+ <button class="button"> Page 1</button>
+  <div class="innerPart">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>     
+ <button class="button"> Page 2</button>
+  <div class="innerPart">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>            
+</body>
+</html>

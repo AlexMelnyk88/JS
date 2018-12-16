@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>run</title>
+    
+    <style>
+        .inner_div{
+            border: 1px solid red;
+            background: red;
+            height: 20px;
+            width: 30px;
+            text-align: center;
+            padding: 2px;
+            left: 180px;
+            top: 130px;
+            position: absolute;
+        }
+        .main_div{
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            border: 1px solid gray;    
+            background: #a29696;
+            left:50px;
+            top: 60px;
+            
+        }
+      
+    </style>
+    
+    <script>
+        var page = {
+              init:function() {
+                this.initiation();  
+                  
+              },
+            
+            initiation:function(){
+                this.main_div = document.querySelector('.main_div');
+                this.inner_div = document.querySelector('.inner_div');
+                this.AddEvent();
+                
+            },
+         
+            AddEvent:function(){
+                this.main_div.addEventListener('mousemove', function(e) {
+                    this.MainDivCoordinates(e.clientY, e.clientX);
+                      
+                }.bind(this));
+                
+            
+            },
+            
+            MainDivCoordinates:function(y,x){
+                var rect = this.InnerDivRect();
+                if(x>=rect.left && x<=rect.right && y>=rect.top && y<=rect.bottom){  
+                    this.inner_div.style.left = this.RandomNumber()+50+'px';
+                    this.inner_div.style.top= this.RandomNumber()+'px';   
+                }
+            },
+            
+            InnerDivRect:function(){
+                return this.inner_div.getBoundingClientRect(); 
+            },
+            
+            RandomNumber: function(){
+                var h = this.main_div.clientHeight - this.inner_div.clientHeight; 
+                return Math.round(Math.random() * h);
+                
+            },
+            
+        }
+        
+        
+       window.addEventListener("load", function() {page.init()});    
+           
+</script>
+</head>
+
+    
+    
+    
+
+<body>
+   
+   
+    <div class="main_div">
+        <div class="inner_div">click</div>
+    </div> 
+    
+        
+</body>
+</html>
+              
+                                                                  
+
+             
+           

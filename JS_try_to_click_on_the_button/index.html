@@ -32,24 +32,18 @@
     <script>
         var page = {
               init:function() {
-                this.initiation();  
-                  
+                this.initiation();                   
               },
             
             initiation:function(){
                 this.main_div = document.querySelector('.main_div');
                 this.inner_div = document.querySelector('.inner_div');
                 this.AddEvent();
-                
             },
-         
             AddEvent:function(){
                 this.main_div.addEventListener('mousemove', function(e) {
-                    this.MainDivCoordinates(e.clientY, e.clientX);
-                      
+                    this.MainDivCoordinates(e.clientY, e.clientX);    
                 }.bind(this));
-                
-            
             },
             
             MainDivCoordinates:function(y,x){
@@ -66,30 +60,16 @@
             
             RandomNumber: function(){
                 var h = this.main_div.clientHeight - this.inner_div.clientHeight; 
-                return Math.round(Math.random() * h);
-                
-            },
-            
+                return Math.round(Math.random() * h);                
+            }         
         }
-        
-        
-       window.addEventListener("load", function() {page.init()});    
-           
+       window.addEventListener("load", function() {page.init()});            
 </script>
-</head>
-
-    
-    
-    
-
-<body>
-   
-   
+</head>            
+<body>   
     <div class="main_div">
         <div class="inner_div">click</div>
-    </div> 
-    
-        
+    </div>        
 </body>
 </html>
               

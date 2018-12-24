@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <style>
+        body{
+/*            background: linear-gradient(to bottom,red,blue);*/
+            background-color: grey;
+            overflow-y: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .wraper{
+            position: relative;
+            width: 1500px;
+            height: 800px;
+            margin: auto;
+            background-color: aliceblue;
+        }
+        
+        .slide{
+             height: 800px;
+             background-position: center;
+             background-size: cover;
+             background-repeat: no-repeat;
+             color: #fffefe;
+        }
+        
+        .page1{background-image: url('images/page1.jpg');}
+        .page2{background-image: url('images/page2.jpg');}
+        .page3{background-image: url('images/page3.jpg');}
+        
+        .slider .content{
+            color: aliceblue;
+            text-align: center;
+            font-size: 20px;
+        }
+        
+        .arrow-left{   
+            position: absolute;
+            border: 17px solid #ebe1e1;
+            border-color: transparent #030303 transparent transparent;  
+            cursor: pointer;
+            top: 50%;
+        
+        }
+        .arrow-right{   
+            position: absolute;
+            border: 17px solid #ebe1e1;
+            border-color: transparent  transparent transparent #030303;  
+            cursor: pointer;
+            top: 50%;
+            left: 1466px;
+            
+        }
+        
+            .arrow-right:hover{
+             border-color: transparent  transparent transparent aliceblue;
+           
+            
+        }
+            .arrow-left:hover{
+             border-color: transparent  aliceblue transparent transparent;
+          
+            
+        }
+        
+    
+    </style>
+    <script>
+       
+        var page ={
+              init:function(){
+                  this.GetAttributes();
+              },
+             GetAttributes:function(){
+                  this.container= document.querySelector('.wraper');
+                  this.slide = document.querySelectorAll('.slide');   
+                  this.Btn_left = this.container.querySelector('.arrow-left');
+                  this.Btn_right = this.container.querySelector('.arrow-right'); 
+                  this.Initiation();
+                  this.AddEvent_Btn_Right(); 
+                  this.AddEvent_Btn_Left();
+                  this.index_of_page = 0;  //Counter
+            },
+            Initiation:function(){
+                for(var i=0; i<this.slide.length; i++){
+                    this.slide[i].style.display = "none"; 
+                }
+                this.slide[0].style.display = "block";//Starting image
+           },
+             //show a page which goes one by one to the right side
+             ShowNextRightPage:function(){
+                 if(this.slide[this.index_of_page+1].previousElementSibling){
+                     this.slide[this.index_of_page].style.display= "none";
+                 }
+                    this.slide[this.index_of_page+1].style.display = "block";
+                        this.index_of_page++;  
+             },
+            
+            //Event on the right button
+            AddEvent_Btn_Right:function(){
+                 this.Btn_right.addEventListener('click',function(){ 
+        if(this.index_of_page === this.slide.length-1){ //if it's the last page we get back to the first one 
+          this.slide[this.index_of_page].style.display = "none";// when we click making current display block invisible
+            this.index_of_page = -1; //add -1 
+                       }
+                          this.ShowNextRightPage();  // Checkout method   
+                 }.bind(this))
+     
+            },
+                        
+             //show a page which goes one by one to the left side
+             ShowPrevLeftPage:function(){
+                 if(this.slide[this.index_of_page-1].nextElementSibling){
+                     this.slide[this.index_of_page].style.display= "none";
+                 }
+                 
+                   this.slide[this.index_of_page-1].style.display = "block";
+                   this.index_of_page--; 
+             },
+            //Event on the right button
+             AddEvent_Btn_Left:function(){
+                 this.Btn_left.addEventListener('click',function(){
+                if(this.index_of_page === 0){ //Starting image, will move to the left side that is our condition
+                this.slide[this.index_of_page].style.display = "none";//when we click making current display block invisible
+                     this.index_of_page = this.slide.length;
+                       }
+                      this.ShowPrevLeftPage();// Checkout method          
+                 }.bind(this))
+            }
+        }
+        
+        window.addEventListener('load',function(){page.init()})
+    </script>
+</head>
+
+<body>
+    <div class="wraper">
+        <div class="arrow-left"></div>
+        <div class="arrow-right"></div> 
+        <div class="slider">
+             <div class="slide page1 content"><span>image1</span></div>
+             <div class="slide page2 content"><span>image2</span></div> 
+             <div class="slide page3 content"><span>image3</span></div> 
+        </div>
+    </div>  
+    <script>  
+    </script>
+</body>
+</html>

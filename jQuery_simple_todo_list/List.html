@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+     </script>
+    <script src="list.js"></script>
+   <style>
+     .wraper{
+            border: 1px solid grey;
+            width: 400px;
+            height: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px; 
+            margin-left: -200px;
+            background-color: darkgrey; 
+            border-radius: 5px;
+            overflow-y:scroll;
+        }
+       .Input{
+           width: 250px;
+           border-radius: 5px;
+           padding: 2px;
+           margin-bottom: 5px;
+           margin-left: 5px;
+       }
+       .list{
+           background:#939191;
+           font-size: 20px;
+           margin-left: 30px ;
+           border-radius: 3px;
+           margin-bottom: 0px;
+              
+       }
+       .list:hover{
+            cursor: pointer;
+            background-color: darkgray;
+           
+       }   
+       #ul-list{
+           margin: 0;
+           padding: 0;
+           width: 0px;
+           
+       }
+       #ul-list>li{
+           list-style-type: none;
+           border-radius: 3px;       
+           width: 256px;
+           background-color:#f2f2f2;
+           margin-top: 2px;
+           margin-left: 6px;
+
+       }
+       #ul-list>li:hover{
+           cursor: pointer;
+           background-color: red;
+       }
+   </style> 
+    
+</head>
+<body>
+    <div class="wraper">
+      <div>
+        <input type="text" class="Input" placeholder="text...">
+        <span class="list"> Add List </span>
+          <div id="ul-list">
+          
+          </div>
+      </div>
+    </div>       
+</body>
+</html>

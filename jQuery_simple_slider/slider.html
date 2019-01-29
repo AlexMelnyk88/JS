@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slider</title>
+    <style>
+    .container{
+            background-color: white;
+            width: 400px;
+            height: 300px;
+            position: fixed;
+            left: 50%;
+            margin-left: -200px;
+          
+    
+        }
+    .page{
+            font-size: 200px;
+            top: 45px;
+            left:160px;   
+            width: 400px;
+            height: 300px;
+            display: none;
+            position: absolute;
+            
+        }
+        
+    .active{
+            display: block;
+            
+            
+        }
+    .container .prev{
+            position: absolute;
+            font-size: 10px;
+            top:150px;
+            cursor: pointer;
+            
+                
+        }
+    .container .next{
+            position: absolute;
+            font-size: 10px;
+            left:365px;
+            top:148px;
+            cursor: pointer;
+                
+        }
+       
+        .photo{
+            position: absolute;
+            left: -160px;
+            top: -45px;
+        }
+        
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="slider.js"></script>
+</head>
+<body>
+     <div class="container">
+               <div class="page active">
+                   <img src="photos/1.jpg" alt="photo" class="photo">
+               </div>
+               <div class="page ">
+                   <img src="photos/2.jpg" alt="photo" class="photo">
+               </div>
+               <div class="page ">
+                  <img src="photos/3.jpg" alt="photo"  class="photo">
+              </div>
+        <button class="prev">prev</button>
+        <button class="next">next</button>
+    </div>
+    
+</body>
+</html>

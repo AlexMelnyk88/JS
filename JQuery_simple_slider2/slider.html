@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slider_2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="slider.js"></script>
+    <style>
+        .container{
+            border-radius: 2px;
+            background-color: white;
+            position: relative;
+            height: 600px;
+            width: 1185px;
+            margin: auto; 
+            overflow: hidden;
+        }
+        
+       
+        .left>span{
+           position: absolute;
+           border:1px solid black;
+           transform: rotate(45deg);  
+           border-right: transparent;
+           border-top: transparent;
+           width: 20px;
+           height: 20px;
+           top: 280px;
+           left: 10px;
+        }
+        .left>span:hover{
+             border:1px solid #ff0404;
+             border-right: transparent;
+             border-top: transparent;
+             cursor: pointer;
+        }
+        
+         .right>span{
+           position: absolute;
+           border:1px solid black;
+           transform: rotate(45deg);  
+           border-left: transparent;
+           border-bottom: transparent;
+           width: 20px;
+           height: 20px;
+           top: 280px;
+           left: 1154px;
+        }
+        .right>span:hover{
+             border:1px solid #ff0404;
+             border-left: transparent;
+             border-bottom: transparent;
+             cursor: pointer;
+        }
+        
+            .slider{
+              display: inline-block;
+              margin-top: -5px;
+              margin-left: -6px;    
+        }
+        
+        .wraper{
+            position: absolute;
+            width: 4800px;
+            margin-top: -5px;
+            margin-left: 7px;
+        }
+       
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="wraper">
+              <div class="slider"><img src="photos/1.jpg" alt="photo"></div>
+              <div class="slider"><img src="photos/2.jpg" alt="photo"></div>
+              <div class="slider"><img src="photos/3.jpg" alt="photo"></div> 
+        </div>
+        <div class="left"><span></span></div>
+        <div class="right"><span></span></div>
+    </div>
+
+</body>
+</html>
